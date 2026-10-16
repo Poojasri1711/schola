@@ -1,0 +1,30 @@
+node_modules
+.env
+.DS_Store
+dist
+dist-ssr
+*.local
+backend/uploads/*
+!backend/uploads/.gitkeep
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Build output
+frontend/dist/
+dist/
+
+# Uploaded documents and user files
+backend/uploads/
+
+# Logs
+npm-debug.log*
+*.log
+
+# Local operating system files
+.DS_Store
+Thumbs.db
