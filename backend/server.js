@@ -45,11 +45,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Health Check
-app.get('/api/health', (req, res) => {
+app.get("/", (req, res) => {
   res.status(200).json({
-    status: 'online',
-    timestamp: new Date().toISOString(),
-    service: 'Scholarship Management Portal API',
+    success: true,
+    message: "Scholarship Portal Backend is running!"
   });
 });
 
