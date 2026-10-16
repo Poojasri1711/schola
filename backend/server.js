@@ -24,9 +24,13 @@ const {
 const app = express();
 
 // Ensure uploads folder exists automatically
-const uploadsPath = path.join(__dirname, 'uploads');
+// Configure uploads directory for local and Vercel environments
+const uploadsPath = process.env.VERCEL
+    ? path.join('/tmp', 'uploads')
+    : path.join(__dirname, 'uploads');
+
 if (!fs.existsSync(uploadsPath)) {
-  fs.mkdirSync(uploadsPath, { recursive: true });
+    fs.mkdirSync(uploadsPath, { recursive: true });
 }
 
 // Global Middleware
