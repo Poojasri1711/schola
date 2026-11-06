@@ -25,8 +25,17 @@ const seedAdmin = async () => {
     });
 
     if (existingAdmin) {
-      console.log('Admin already exists.');
-      console.log(`Admin email: ${existingAdmin.email}`);
+    const hashedPassword = await bcrypt.hash(adminPassword, 10);
+
+    existingAdmin.password = hashedPassword;
+    existingAdmin.email = adminEmail;
+    existingAdmin.name = adminName;
+    existingAdmin.role = 'admin';
+
+    await existingAdmin.save();
+
+    console.log('Admin password has been reset successfully.');
+    console.log(Admin email: ${existingAdmin.email});
     } else {
       // Hash admin password
       const salt = await bcrypt.genSalt(10);
